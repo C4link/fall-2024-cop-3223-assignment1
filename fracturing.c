@@ -118,5 +118,6 @@ int main(int argc, char **argv)
     calculateArea();
     calculateWidth();
     calculateHeight();
+    
     return 0;
 }
