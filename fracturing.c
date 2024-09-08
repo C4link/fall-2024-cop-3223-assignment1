@@ -1,123 +1,110 @@
+//Zoe Mantle
+//UCFID 5685421
+//COP 3223
+//Assignment 1 - Fracturing
 
 #include <stdio.h>
 #include <math.h>
-#define PI 3.14159
+#define PI 3.14159 //defines PI
 
 
-double askForUserInput()
+double askForUserInput() //function to repeatedly get user input
 {
-    double userValue = 0.0;
-    scanf("%lf", &userValue);
-    return userValue;
+    double userValue = 0.0; //declares and intializes userValue variable
+    scanf("%lf", &userValue); //uses scanf to get input
+    return userValue; //returns user input
 }
 
 
-void printPoints(double x1, double y1, double x2, double y2)
+void printPoints(double x1, double y1, double x2, double y2) //function to repeatedly print points
 {
-    printf("Point #1 entered: x1 = %lf; y1 = %lf\n", x1, y1);
-    printf("Point #2 entered: x2 = %lf; y2 = %lf\n", x2, y2);
+    printf("Point #1 entered: x1 = %lf; y1 = %lf\n", x1, y1); //print point 1
+    printf("Point #2 entered: x2 = %lf; y2 = %lf\n", x2, y2); //print point 2
 }
 
 
-double getDistance(double x1, double y1, double x2, double y2)
+double getDistance() //gets points and calculates the distance to put into each function
 {
-    double distance = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
+    double x1 = askForUserInput(); //gets x1
+    double y1 = askForUserInput(); //gets y1
+    double x2 = askForUserInput(); //gets x2
+    double y2 = askForUserInput(); //gets y2
 
-    return distance;
+    printPoints(x1, y1, x2, y2); //prints the new points out
+
+    double distance = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2)); //calculates distance
+
+    return distance; //returns the distance
 }
 
 
-double calculateDistance()
+double calculateDistance() //function to display distance
 {
-    double x1 = askForUserInput();
-    double y1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y2 = askForUserInput();
+    double distance = getDistance(); //calculates distance
 
-    double distance = getDistance(x1, y1, x2, y2);
+    printf("The distance between the two points is %lf\n", distance); //displays distance
 
-    printPoints(x1, y1, x2, y2);
-    printf("The distance between the two points is %lf\n", distance);
-
-    return 0;
+    return distance; //I wasn't able to figure how to make this function calculate the distance
+                     //and transfer in to the other functions so I made another functions that
+                     //could be repeated in every function without havung to repeat a lot of statements
 }
 
 
-double calculatePerimeter()
+double calculatePerimeter() //function to calculate and display perimeter
 {
-    double x1 = askForUserInput();
-    double y1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y2 = askForUserInput();
+    double distance = getDistance(); //calculates distance
 
-    double distance = getDistance(x1, y1, x2, y2);
+    double perimeter = 2 * PI * (distance / 2); //calculates perimeter
 
-    double perimeter = 2 * PI * (distance / 2);
+    printf("The perimeter of the city encompassed by your requestis %lf\n", perimeter); //displays perimeter
 
-    printPoints(x1, y1, x2, y2);
-    printf("The perimeter of the city encompassed by your requestis %lf\n", perimeter);
-
-    return 0;
+    return 1; //the function itself wasn't difficult to code, the only hard part figuring out the logic
+              //for getting the distance and new points without repeating, to solve it i just made new functions.
 }
 
 
-double calculateArea()
+double calculateArea() //function to calculate and display area
 {
-    double x1 = askForUserInput();
-    double y1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y2 = askForUserInput();
+    double distance = getDistance(); //calculates distance
 
-    double distance = getDistance(x1, y1, x2, y2);
+    double area = PI * pow((distance / 2), 2); //calculates area
 
-    double area = PI * pow((distance / 2), 2);
+    printf("The area of the city encompassed by your request is %lf\n", area); //displays area
 
-    printPoints(x1, y1, x2, y2);
-    printf("The area of the city encompassed by your request is %lf\n", area);
-
-    return 0;
+    return 1; //the function itself wasn't difficult to code, the only hard part figuring out the logic
+              //for getting the distance and new points without repeating, to solve it i just made new functions.
 }
 
 
-double calculateWidth()
+double calculateWidth() //function to calculate and display width
 {
-    double x1 = askForUserInput();
-    double y1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y2 = askForUserInput();
+    double width = getDistance(); //calculates width, which is the same as distance/diameter
 
-    double width = getDistance(x1, y1, x2, y2);
+    printf("The width of the city encompassed by your request is %lf\n", width); //displays width
 
-    printPoints(x1, y1, x2, y2);
-    printf("The width of the city encompassed by your request is %lf\n", width);
-
-    return 0;
+    return 1; //the function itself wasn't difficult to code, the only hard part figuring out the logic
+              //for getting the distance and new points without repeating, to solve it i just made new functions.
 }
 
 
-double calculateHeight()
+double calculateHeight() //function to calculate and display height
 {
-    double x1 = askForUserInput();
-    double y1 = askForUserInput();
-    double x2 = askForUserInput();
-    double y2 = askForUserInput();
+    double height = getDistance(); //calculates height, which is the same as distance/diameter
 
-    double height = getDistance(x1, y1, x2, y2);
+    printf("The height of the city encompassed by your request is %lf\n", height); //displays height
 
-    printPoints(x1, y1, x2, y2);
-    printf("The height of the city encompassed by your request is %lf\n", height);
-
-    return 0;
+    return 1; //the function itself wasn't difficult to code, the only hard part figuring out the logic
+              //for getting the distance and new points without repeating, to solve it i just made new functions.
 }
 
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) //main function, calls the other functions
 {   
-    calculateDistance();
-    calculatePerimeter();
-    calculateArea();
-    calculateWidth();
-    calculateHeight();
+    calculateDistance(); //calls distance function
+    calculatePerimeter(); //calls perimeter function
+    calculateArea(); //calls area function
+    calculateWidth(); //calls width function
+    calculateHeight(); //calls height function
     
     return 0;
 }
